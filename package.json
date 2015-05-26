@@ -1,0 +1,15 @@
+{
+  "name": "auto_stats_project",
+  "version": "1.0.0",
+  "description": "Personal Project for Prime Digital Academy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/app.js"
+  },
+  "author": "Aaron Sawyer",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.12.4"
+  }
+}
