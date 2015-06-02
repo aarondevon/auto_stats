@@ -13,43 +13,19 @@
     <div class="col-md-offset-2">
         <ul class="nav nav-pills">
             <li><a href="#home">Home</a></li>
-            <li><a href="#code">Code</a></li>
-            <li><a href="#projects">Projects</a></li>
+            <li><a href="#car_input">Input Car Info</a></li>
         </ul>
     </div>
 
-    <div class="container" ng-controller="automobile">
+    <main ng-view></main>
 
-        <div class="col-md-3">
-            <h2>Vehicle Info:</h2> <br>
-            <ul>
-                <li>VIN: 12kjk34234kj3</li>
-                <li>Make: Honda</li>
-                <li>Model: Civic LX</li>
-                <li>Engine: 1.7L</li>
-            </ul>
-        </div>
 
-        <div class="col-md-3">
-            <input ng-model="mileage"  placeholder="Mileage"  type="text" />
-            <input ng-model="gallons" placeholder="Gallons" type="text" />
-
-            <h1>Average MPG:</h1>
-            <h1 ng-show="(mileage && gallons)"> {{mileage / gallons}}! </h1>
-            <input class="btn btn-info" type="submit" ng-click="mpg(mileage, gallons)" value="Save" />
-        </div>
-        <div class="col-md-3">
-            <ul>
-            <li ng-repeat=" avgMpg in mpgArray">{{avgMpg.mileage}}{{avgMpg.mpg}}</li>
-            </ul>
-
-        </div>
-    </div>
 
 
         <script src="/vendor/jquery/dist/jquery.min.js" type="text/javascript"></script>
         <script src="vendor/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="/vendor/angular/angular.min.js" type="text/javascript"></script>
+        <script src="/vendor/angular-route/angular-route.min.js"></script>
         <script src="/assets/scripts/app.min.js" type="text/javascript"></script>
     </body>
 </html>

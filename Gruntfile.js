@@ -19,6 +19,8 @@ module.exports = function(grunt) {
                     "angular/angular.min.js",
                     "angular/angular.min.js.map",
                     "angular/angular-csp.css",
+                    "angular-route/angular-route.min.js",
+                    "angular-route/angular-route.min.js.map",
                     "bootstrap/dist/css/bootstrap.css.map",
                     "bootstrap/dist/css/bootstrap.min.css",
                     "bootstrap/dist/js/bootstrap.min.js",
@@ -33,7 +35,18 @@ module.exports = function(grunt) {
                 cwd: "client/",
                 src: "style.css",
                 "dest": "server/public/assets/css"
+            },
+            views: {
+                expand: true,
+                cwd: "client/",
+                src: [
+                    "views/routes/car_input.html",
+                    "views/routes/home.html"
+                ],
+
+                "dest": "server/public/"
             }
+
         }
     });
 
