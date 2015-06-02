@@ -5,21 +5,22 @@ var mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/auto_stats');
 
-var MileItUp = mongoose.model('MileItUp', {test: Number});
+var MileItUp = mongoose.model('MileItUp', {mileage: Number, name: String, mpg: String});
 
 router.post('/add', function(request, response, next){
-    var kitty = new MileItUp({test: request.body.mileage});
-    kitty.save(function(err){
-        if(err) console.log('meow %s', err);
-        response.send(kitty.toJSON());
+    var car = new MileItUp({mileage: request.body.mileage, mpg: request.body.mpg});
+    console.log(request.body);
+    car.save(function(err){
+        if(err) console.log('Failed to add car', err);
+        response.send(car.toJSON());
         //next();
     });
 });
 
 router.get('/mpgdata', function(request, response, next){
-    return Cat.find({}).exec(function(err, cats){
+    return MileItUp.find({}).exec(function(err, data){
         if(err) throw new Error(err);
-        response.send(JSON.stringify(cats));
+        response.send(JSON.stringify(data));
         //next();
     });
 });

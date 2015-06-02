@@ -10,6 +10,13 @@
     <div class="container">
         <h1>auto stats</h1>
     </div>
+    <div class="col-md-offset-2">
+        <ul class="nav nav-pills">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#code">Code</a></li>
+            <li><a href="#projects">Projects</a></li>
+        </ul>
+    </div>
 
     <div class="container" ng-controller="automobile">
 
@@ -23,15 +30,17 @@
             </ul>
         </div>
 
-        <div class ="col-md-3">
+        <div class="col-md-3">
             <input ng-model="mileage"  placeholder="Mileage"  type="text" />
             <input ng-model="gallons" placeholder="Gallons" type="text" />
-            <h1> Average MPG: {{mileage / gallons}}! </h1>
+
+            <h1>Average MPG:</h1>
+            <h1 ng-show="(mileage && gallons)"> {{mileage / gallons}}! </h1>
             <input class="btn btn-info" type="submit" ng-click="mpg(mileage, gallons)" value="Save" />
         </div>
-        <div>
+        <div class="col-md-3">
             <ul>
-            <li ng-repeat=" avgMpg in mpgArray">{{avgMpg.name}}</li>
+            <li ng-repeat=" avgMpg in mpgArray">{{avgMpg.mileage}}{{avgMpg.mpg}}</li>
             </ul>
 
         </div>

@@ -10,8 +10,9 @@ var server = app.listen(3000, function(){
     console.log("What did you say port: ", port, "?");
 });
 
-app.use("/", index);
 app.use(bodyParser.json());
-app.use('/', index);
+app.use("/", index);
+
+
 
 module.exports = app;

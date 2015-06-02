@@ -2,8 +2,8 @@ var carApp = angular.module('carApp',[]);
 
 carApp.controller('automobile',["$scope", "$http", function($scope, $http){
 
-    $scope.mileage = {};
-    $scope.gallons = {};
+    $scope.mileage = "";
+    $scope.gallons = "";
     $scope.mpgArray = [];
 
     var fetchMPG = function() {
@@ -11,24 +11,40 @@ carApp.controller('automobile',["$scope", "$http", function($scope, $http){
             if(response.status !== 200){
                 throw new Error('Failed to fetch cats from the API');
             }
-            $scope.mileage = {};
-            $scope.gallons = {};
+            $scope.mileage = "";
+            $scope.gallons = "";
             $scope.mpgArray = response.data;
             return response.data;
         })
     };
 
-    //$scope.mpg = function() {
-    //    $scope.calculateMpg = $scope.mileage / $scope.gallons;
-    //    console.log($scope.calculateMpg);
+    fetchMPG();
+
+
 
         $scope.mpg = function(mileage, gallons) {
             var average = mileage / gallons;
             console.log(average);
-            return $http.post('/add', average).then(fetchMPG);
+            return $http.post('/add', {mileage: average, mpg:"MPG"}).then(fetchMPG);
 
         };
-    //};
+
+}]);
+
+myApp.config(['$routeProvider', function($routeProvider){
+    $routeProvider.
+        when('/home',{
+            templatUrl: "/views/routes/home.html"
+        }).
+        when('/code',{
+            templateUrl: "/views/routes/code.html"
+        }).
+        when('/projects',{
+            templateUrl: "/views/routes/projects.html"
+        }).
+        otherwise({
+            redirectTo: '/home'
+        });
 }]);
 
 
