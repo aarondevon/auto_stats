@@ -1,27 +1,4 @@
 <div class="container" ng-controller="automobile">
 
-    <div class="col-md-3">
-        <h2>Vehicle Info:</h2> <br>
-        <ul>
-            <li>VIN: 12kjk34234kj3</li>
-            <li>Make: Honda</li>
-            <li>Model: Civic LX</li>
-            <li>Engine: 1.7L</li>
-        </ul>
-    </div>
-
-    <div class="col-md-3">
-        <input ng-model="mileage"  placeholder="Mileage"  type="text" />
-        <input ng-model="gallons" placeholder="Gallons" type="text" />
-
-        <h1>Average MPG:</h1>
-        <h1 ng-show="(mileage && gallons)"> {{mileage / gallons}}! </h1>
-        <input class="btn btn-info" type="submit" ng-click="mpg(mileage, gallons)" value="Save" />
-    </div>
-    <div class="col-md-3">
-        <ul>
-            <li ng-repeat=" avgMpg in mpgArray">{{avgMpg.mileage}}{{avgMpg.mpg}}</li>
-        </ul>
-
-    </div>
+    <input ng-model="vin" placeholder="VIN" type="text" />
 </div>

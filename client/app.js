@@ -57,7 +57,3 @@ carApp.controller('automobile',["$scope", "$http", function($scope, $http){
 
 
 
-
-
-
-
