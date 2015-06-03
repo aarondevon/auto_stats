@@ -7,8 +7,8 @@ module.exports = function(grunt) {
                 banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
             build: {
-                src: 'client/app.js',
-                dest: 'server/public/assets/scripts/app.min.js'
+                src: 'client/scripts/app.js',
+                dest: 'server/public/scripts/app.min.js'
             }
         },
         copy: {
@@ -33,8 +33,8 @@ module.exports = function(grunt) {
             css: {
                 expand: true,
                 cwd: "client/",
-                src: "style.css",
-                "dest": "server/public/assets/css"
+                src: "css/style.css",
+                "dest": "server/public/"
             },
             views: {
                 expand: true,
@@ -44,6 +44,23 @@ module.exports = function(grunt) {
                     "views/routes/home.html"
                 ],
 
+                "dest": "server/public/"
+            },
+            controller: {
+                expand: true,
+                cwd: "client/",
+                src: [
+                    "scripts/controllers/mpg_controller.js",
+                    "scripts/controllers/auto_info.js"
+                ],
+                "dest": "server/public/"
+            },
+            notmini: {
+                expand: true,
+                cwd: "client/",
+                src: [
+                    "scripts/app.js"
+                ],
                 "dest": "server/public/"
             }
 
