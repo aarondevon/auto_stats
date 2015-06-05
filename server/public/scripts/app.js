@@ -12,6 +12,9 @@ carApp.config(['$routeProvider', function($routeProvider){
         when('/car_input', {
             templateUrl: "/views/routes/car_input.html"
         }).
+        when('/maint', {
+            templateUrl: "/views/routes/maint.html"
+        }).
         otherwise({
             redirectTo: '/home'
         });
@@ -30,8 +33,9 @@ $.ajax({
 
         for (var i = 0; i < data.actionHolder.length; i++) {
             if (data.actionHolder[i].intervalMileage > 50000){
-                $(".api_info").append("Action: ",data.actionHolder[i].action);
-                $(".api_info").append("Interval Mileage: ",data.actionHolder[i].intervalMileage);
+                $(".api_info").append("<tr><td>" + data.actionHolder[i].action + "</td>" + "<td>" + data.actionHolder[i].item + "</td>" + "<td>" + data.actionHolder[i].intervalMileage + "</td> </tr>");
+                //$(".api_info").append("Item: ",data.actionHolder[i].item +"<br />");
+                //$(".api_info").append("Interval Mileage: ",data.actionHolder[i].intervalMileage +"<br />");
             }
         }
 

@@ -41,7 +41,8 @@ module.exports = function(grunt) {
                 cwd: "client/",
                 src: [
                     "views/routes/car_input.html",
-                    "views/routes/home.html"
+                    "views/routes/home.html",
+                    "views/routes/maint.html"
                 ],
 
                 "dest": "server/public/"
