@@ -25,7 +25,17 @@ $.ajax({
     crossDomain: true,
     success: function (data){
         console.log(data);
-        $(".api_info").append(data);
+
+
+
+        for (var i = 0; i < data.actionHolder.length; i++) {
+            if (data.actionHolder[i].intervalMileage > 50000){
+                $(".api_info").append("Action: ",data.actionHolder[i].action);
+                $(".api_info").append("Interval Mileage: ",data.actionHolder[i].intervalMileage);
+            }
+        }
+
+
 
     },
     error: function(xhr) {
@@ -33,6 +43,10 @@ $.ajax({
         console.log("xhr");
     }
 });
+
+function displayData(data) {
+
+}
 
 
 
