@@ -5,3 +5,8 @@ li {
 .h2inline {
     display: inline;
 }
+
+.vechinfo {
+    background-color:#798D8F;
+    border-radius: 10px;
+}
